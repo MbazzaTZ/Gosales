@@ -1,0 +1,292 @@
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:08.551Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.551Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.554Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.564Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.566Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.759Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.760Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.760Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.761Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.765Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.777Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.779Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.779Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.783Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.783Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.790Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.792Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.792Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.795Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.795Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.800Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.803Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.803Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.804Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.804Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.811Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.812Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.812Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.813Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.813Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.820Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.820Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.820Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.821Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.821Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.829Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.829Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.829Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.832Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.832Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.838Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.840Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.840Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.841Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.842Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:08.850Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.850Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:08.850Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:08.851Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:08.851Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:09.292Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.293Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.293Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.293Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.293Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.297Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.297Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.297Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.298Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.298Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.301Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.301Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.302Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.302Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.302Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.305Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.305Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.305Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.306Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.306Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.309Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.309Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.309Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.309Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.309Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.312Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.312Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.312Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.313Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.313Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.316Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.317Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.317Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.317Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.317Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.321Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.321Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.321Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.322Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.322Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.324Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.325Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.325Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.325Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.325Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.327Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.328Z] Checked if tokens are valid: false, expires at: 1759335548158
+[debug] [2025-10-01T19:46:09.328Z] > refreshing access token with scopes: []
+[debug] [2025-10-01T19:46:09.328Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-10-01T19:46:09.328Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.620Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.620Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.656Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [none]
+[debug] [2025-10-01T19:46:09.656Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.666Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.666Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.680Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.680Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.690Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.690Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.706Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.707Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.756Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.757Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.775Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [none]
+[debug] [2025-10-01T19:46:09.775Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.782Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.784Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.799Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.800Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.807Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.807Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.824Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.825Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.864Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.864Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.879Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.879Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.891Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.891Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.907Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.907Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.962Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.962Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:09.982Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com [none]
+[debug] [2025-10-01T19:46:09.983Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:09.988Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:09.988Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.003Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.003Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.011Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.011Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.028Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.028Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.032Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.033Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.049Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.049Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.097Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.098Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.119Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [none]
+[debug] [2025-10-01T19:46:10.119Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.122Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.123Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.140Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [none]
+[debug] [2025-10-01T19:46:10.140Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.147Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.147Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.173Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.173Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.192Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.193Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.205Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.206Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.220Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.220Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.242Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.242Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.247Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.248Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.266Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.267Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.342Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.348Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.366Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.366Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.373Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-10-01T19:46:10.373Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-10-01T19:46:10.396Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2025-10-01T19:46:10.397Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:10.556Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-10-01T19:46:10.557Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.581Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com 403
+[debug] [2025-10-01T19:46:10.581Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [omitted]
+[debug] [2025-10-01T19:46:10.596Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com 200
+[debug] [2025-10-01T19:46:10.596Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.703Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ 200
+[debug] [2025-10-01T19:46:10.703Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [omitted]
+[debug] [2025-10-01T19:46:10.706Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2025-10-01T19:46:10.706Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.719Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com 200
+[debug] [2025-10-01T19:46:10.719Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.809Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-10-01T19:46:10.809Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.849Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-10-01T19:46:10.849Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:10.976Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com 403
+[debug] [2025-10-01T19:46:10.976Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [omitted]
+[debug] [2025-10-01T19:46:10.982Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com 200
+[debug] [2025-10-01T19:46:10.982Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.002Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com 200
+[debug] [2025-10-01T19:46:11.002Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/fcm.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.038Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-10-01T19:46:11.038Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.044Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com 200
+[debug] [2025-10-01T19:46:11.044Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.157Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-10-01T19:46:11.157Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.187Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-10-01T19:46:11.187Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.233Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com 200
+[debug] [2025-10-01T19:46:11.237Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/storage.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.259Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com 200
+[debug] [2025-10-01T19:46:11.260Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.287Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2025-10-01T19:46:11.287Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.316Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com 200
+[debug] [2025-10-01T19:46:11.316Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firestore.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:11.350Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ 200
+[debug] [2025-10-01T19:46:11.350Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:11.368Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-01T19:46:11.375Z] > authorizing via signed-in user (davidmbazza2@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:25.105Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.106Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.107Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.107Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.108Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.108Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.109Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.109Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.111Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [none]
+[debug] [2025-10-01T19:46:25.112Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.196Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-10-01T19:46:25.196Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.201Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-10-01T19:46:25.201Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.204Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [none]
+[debug] [2025-10-01T19:46:25.205Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com x-goog-quota-user=projects/stockflo-df6d6
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:25.284Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.285Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.286Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.286Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.286Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.286Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.287Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.287Z] Checked if tokens are valid: true, expires at: 1759351569374
+[debug] [2025-10-01T19:46:25.287Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [none]
+[debug] [2025-10-01T19:46:25.287Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.290Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-10-01T19:46:25.290Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.293Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-10-01T19:46:25.294Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.296Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [none]
+[debug] [2025-10-01T19:46:25.297Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com x-goog-quota-user=projects/stockflo-df6d6
+[debug] [2025-10-01T19:46:25.903Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com 403
+[debug] [2025-10-01T19:46:25.904Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [omitted]
+[debug] [2025-10-01T19:46:25.955Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com 403
+[debug] [2025-10-01T19:46:25.955Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseio.com [omitted]
+[debug] [2025-10-01T19:46:26.058Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-10-01T19:46:26.058Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:26.073Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-10-01T19:46:26.073Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:26.076Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-10-01T19:46:26.076Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:26.077Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-10-01T19:46:26.077Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-10-01T19:46:26.301Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ 200
+[debug] [2025-10-01T19:46:26.302Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:26.308Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-01T19:46:26.309Z] > authorizing via signed-in user (davidmbazza2@gmail.com)
+[debug] [2025-10-01T19:46:26.315Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ 200
+[debug] [2025-10-01T19:46:26.315Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/stockflo-df6d6/services/ [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:26.337Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-01T19:46:26.337Z] > authorizing via signed-in user (davidmbazza2@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-10-01T19:46:26.350Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-10-01T19:46:26.350Z] > authorizing via signed-in user (davidmbazza2@gmail.com)

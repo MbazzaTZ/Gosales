@@ -1,1 +1,86 @@
-/* Add styles here */
+/* General Body Styles */
+body {
+    background-color: #111827; /* dark background */
+    color: #d1d5db; /* light gray text */
+}
+
+/* Header & Sub-navigation */
+.sub-nav a {
+    padding: 0.75rem 1rem;
+    color: #9ca3af; /* muted text */
+    border-radius: 0.375rem; /* rounded corners */
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.sub-nav a.active,
+.sub-nav a:hover {
+    background-color: #10b981; /* emerald green */
+    color: #ffffff; /* white text */
+    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.5);
+}
+
+.sub-nav a:not(.active):hover {
+    background-color: #374151; /* lighter gray on hover */
+}
+
+
+/* Main Content Sections */
+.dashboard-section {
+    background-color: #1f2937; /* slightly lighter dark background */
+    border-radius: 0.75rem; /* rounded corners */
+    padding: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Filter Buttons */
+.month-filter-btn {
+    transition: all 0.2s ease;
+}
+
+.active-filter-btn {
+    background-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.5);
+}
+
+
+/* Individual Cards */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+
+/* Performance Gauge */
+.performance-gauge {
+    background-color: #374151;
+    border-radius: 9999px;
+    overflow: hidden;
+    height: 12px;
+}
+
+.performance-bar {
+    background-color: #10b981;
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* Tables */
+table th, table td {
+    border-bottom-width: 1px;
+    border-color: #4b5563;
+}
+
+
+/* General hidden utility */
+.hidden {
+    display: none;
+}

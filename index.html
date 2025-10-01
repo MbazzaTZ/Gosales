@@ -1,14 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Stock Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+<body class="bg-gray-900 text-gray-300 font-sans">
+
+    <div id="app-container">
+        <header class="app-header">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-bold text-white">Sales & Stock Dashboard</h1>
+            </div>
+            <div id="auth-controls" class="flex items-center space-x-4">
+                 <button id="editor-mode-btn" class="hidden bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition">Enter Editor Mode</button>
+                 <button id="save-changes-btn" class="hidden bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition">Save Changes</button>
+                <button id="logout-btn" class="hidden bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition">Logout</button>
+            </div>
+        </header>
+
+        <nav class="sub-nav">
+            <a href="#main-dashboard" class="active">Main Dashboard</a>
+            <a href="#teamleader-dashboard">Teamleader & Captain</a>
+            <a href="#dsr-dashboard">DSR Performance</a>
+            <a href="#inventory-dashboard">Inventory Status</a>
+            <a href="admin.html">Admin Panel</a>
+        </nav>
+
+        <main class="main-content">
+            <!-- Main Dashboard Section -->
+            <section id="main-dashboard" class="dashboard-section">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
+                    <!-- Card: Working Days -->
+                    <div class="kpi-card border-t-4 border-yellow-400">
+                        <h4 class="kpi-title editable" data-field-id="kpi_title_working_days">WORKING DAYS MTD</h4>
+                        <p id="days-worked" class="kpi-value editable" data-field-id="kpi_value_days_worked">0</p>
+                    </div>
+                    <!-- Card: Remaining Work Days -->
+                    <div class="kpi-card border-t-4 border-red-400">
+                        <h4 class="kpi-title editable" data-field-id="kpi_title_remaining_days">REMAINING WORK DAYS</h4>
+                        <p id="remaining-days" class="kpi-value editable" data-field-id="kpi_value_remaining_days">0</p>
+                    </div>
+                    <!-- Card: Yesterday Sales -->
+                    <div class="kpi-card border-t-4 border-blue-400">
+                        <h4 class="kpi-title editable" data-field-id="kpi_title_yesterday_sales">YESTERDAY SALES</h4>
+                        <p id="yesterday-sales" class="kpi-value editable" data-field-id="kpi_value_yesterday_sales">0</p>
+                    </div>
+                    <!-- Card: Today Sales -->
+                    <div class="kpi-card border-t-4 border-indigo-400">
+                        <h4 class="kpi-title editable" data-field-id="kpi_title_today_sales">TODAY SALES</h4>
+                        <p id="today-sales" class="kpi-value editable" data-field-id="kpi_value_today_sales">1</p>
+                    </div>
+                    <!-- Card: Daily Target -->
+                    <div class="kpi-card border-t-4 border-teal-400">
+                        <h4 class="kpi-title editable" data-field-id="kpi_title_daily_target">DAILY TARGET</h4>
+                        <p id="daily-target" class="kpi-value editable" data-field-id="kpi_value_daily_target">7</p>
+                    </div>
+                </div>
+
+                <!-- Time and Filters -->
+                 <div class="flex justify-between items-center mb-6 px-2">
+                    <div id="date" class="text-lg font-semibold text-white"></div>
+                    <div class="flex space-x-2">
+                        <button data-month="this-month" class="month-filter-btn active-filter-btn">This Month</button>
+                        <button data-month="last-month" class="month-filter-btn">Last Month</button>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                           <!-- Monthly Goals Card -->
+                            <div class="card">
+                                <h3 id="monthly-label" class="card-title">This Month's Goals</h3>
+                                <div class="flex justify-around text-center p-4">
+                                    <div>
+                                        <p class="text-gray-400 text-sm editable" data-field-id="kpi_title_monthly_target">Monthly Target</p>
+                                        <p id="monthly-target" class="text-3xl font-bold editable" data-field-id="kpi_value_monthly_target">240</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-400 text-sm editable" data-field-id="kpi_title_mtd_actual">MTD Actual</p>
+                                        <p id="mtd-actual" class="text-3xl font-bold editable" data-field-id="kpi_value_mtd_actual">1</p>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-gray-400 text-center mb-1">MTD Target vs Actual</p>
+                                    <div class="progress-bar-bg">
+                                        <div id="mtd-performance-bar" class="progress-bar" style="width: 14%;"></div>
+                                    </div>
+                                    <p id="mtd-target-vs-actual-percent" class="text-center font-bold text-lg mt-1">14%</p>
+                                    <p id="mtd-gap" class="text-center text-sm text-red-400 font-semibold">Gap vs MTD Target: -6</p>
+                                </div>
+                            </div>
+
+                            <!-- Stock Card -->
+                            <div class="card">
+                                <h3 class="card-title editable" data-field-id="card_title_stock_snapshot">Stock Snapshot</h3>
+                                <div class="p-4 space-y-2">
+                                     <div class="flex justify-between items-center">
+                                        <p class="text-gray-400 editable" data-field-id="kpi_title_stock_in_hand">Stock In Hand</p>
+                                        <p id="stock-in-hand" class="font-bold text-xl editable" data-field-id="kpi_value_stock_in_hand">98</p>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-gray-400 editable" data-field-id="kpi_title_sold_vs_received">Sold vs Received</p>
+                                        <p id="stock-sold-vs-received" class="font-bold text-xl editable" data-field-id="kpi_value_sold_vs_received">2%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sales Growth Chart -->
+                        <div class="card h-80">
+                            <h3 class="card-title editable" data-field-id="chart_title_sales_growth">Sales Growth</h3>
+                            <div class="p-4 h-full">
+                                <canvas id="salesGrowthChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column / Stock Breakdown -->
+                    <div class="card h-full">
+                        <h3 class="card-title editable" data-field-id="chart_title_stock_breakdown">Stock Breakdown</h3>
+                        <div class="p-4 h-[90%] flex items-center justify-center">
+                            <canvas id="stockBreakdownChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teamleader Dashboard Section -->
+            <section id="teamleader-dashboard" class="dashboard-section hidden">
+                <h2 class="text-3xl font-bold text-white mb-6 editable" data-field-id="section_title_team_leader">Teamleader & Captain Dashboard</h2>
+                <div class="card overflow-x-auto">
+                    <table class="table-fixed w-full">
+                         <thead>
+                            <tr class="bg-gray-700/50">
+                                <th class="p-4 text-left editable" data-field-id="table_header_tl_name">Name</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_tl_monthly_target">Monthly Target</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_tl_mtd_actual">MTD Actual</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_tl_performance">Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated from Firestore -->
+                            <tr><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_1_1">TL Name 1</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_1_2">50</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_1_3">10</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_1_4">20%</td></tr>
+                            <tr><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_2_1">Captain Name 1</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_2_2">40</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_2_3">15</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_tl_2_4">37.5%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- DSR Performance Section -->
+            <section id="dsr-dashboard" class="dashboard-section hidden">
+                <h2 class="text-3xl font-bold text-white mb-6 editable" data-field-id="section_title_dsr">DSR Performance Dashboard</h2>
+                 <div class="card overflow-x-auto">
+                    <table class="table-fixed w-full">
+                        <thead>
+                            <tr class="bg-gray-700/50">
+                                <th class="p-4 text-left editable" data-field-id="table_header_dsr_name">DSR Name</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_dsr_sales">Sales</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_dsr_stock">Stock In Hand</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_dsr_1_1">DSR 1</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_dsr_1_2">5</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_dsr_1_3">10</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Inventory Status Section -->
+            <section id="inventory-dashboard" class="dashboard-section hidden">
+                <h2 class="text-3xl font-bold text-white mb-6 editable" data-field-id="section_title_inventory">Inventory Status</h2>
+                 <div class="card overflow-x-auto">
+                     <table class="table-fixed w-full">
+                        <thead>
+                            <tr class="bg-gray-700/50">
+                                <th class="p-4 text-left editable" data-field-id="table_header_inv_card">Smart Card #</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_inv_dsr">DSR</th>
+                                <th class="p-4 text-left editable" data-field-id="table_header_inv_status">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_inv_1_1">123456</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_inv_1_2">DSR 1</td><td class="p-4 border-b border-gray-700 editable" data-field-id="table_cell_inv_1_3">Payment Done</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            projectId: "stockflo-df6d6",
+            appId: "1:548883078579:web:18d546da59d441b1533fc6",
+            databaseURL: "https://stockflo-df6d6-default-rtdb.firebaseio.com",
+            storageBucket: "stockflo-df6d6.firebasestorage.app",
+            apiKey: "AIzaSyCb03caIQGGeYFRJHjcRZPlty8RoZ5DIDg",
+            authDomain: "stockflo-df6d6.firebaseapp.com",
+            messagingSenderId: "548883078579",
+            measurementId: "G-RZ6T1MN4Z4"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- App Scripts -->
+    <script src="auth.js"></script>
+    <script src="main.js"></script>
+
 </body>
 </html>

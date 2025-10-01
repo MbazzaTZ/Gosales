@@ -1,0 +1,191 @@
+/*
+ * Advanced Admin Panel Styles
+ * These styles complement the Tailwind CSS utility classes to create a polished, modern look.
+ */
+
+/* Custom properties for a consistent theme */
+:root {
+    --glow-color: theme('colors.emerald.500');
+    --card-bg: theme('colors.gray.800');
+    --body-bg: theme('colors.gray.900');
+    --border-color: theme('colors.gray.700');
+    --text-primary: theme('colors.white');
+    --text-secondary: theme('colors.gray.400');
+    --accent-color: theme('colors.emerald.600');
+    --accent-hover: theme('colors.emerald.700');
+}
+
+body {
+    background-color: var(--body-bg);
+}
+
+/* Login Card Glow Effect */
+.login-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.3);
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(
+        transparent,
+        var(--glow-color),
+        transparent 30%
+    );
+    transform: translate(-50%, -50%);
+    animation: rotate 4s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Blur overlay inside the card to contain the glow */
+.login-card > * {
+    position: relative;
+    z-index: 10;
+}
+
+/* General Card Style for Admin Panel */
+.card {
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px var(--glow-color-transparent);
+}
+
+
+/* Custom File Input Styling */
+.file-input {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.file-input::file-selector-button {
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.375rem; 
+    background-color: theme('colors.gray.600');
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: theme('colors.gray.500');
+}
+
+/* Standardized Button for Uploads */
+.upload-btn {
+    font-weight: bold;
+    padding: 0.6em 1em;
+    border-radius: 0.375rem;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.upload-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+
+/* Manual Data Entry Section Styling */
+.manual-form-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1rem;
+    background-color: theme('colors.gray.700');
+    border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .manual-form-section {
+        grid-template-columns: auto 1fr 1fr auto;
+    }
+}
+
+.manual-form-section h4 {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 1rem;
+}
+
+.manual-form-section input,
+.manual-form-section select {
+    width: 100%;
+    background-color: theme('colors.gray.600');
+    border: 1px solid theme('colors.gray.500');
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.manual-form-section input:focus,
+.manual-form-section select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--glow-color-transparent);
+}
+
+.manual-form-section button {
+    font-weight: bold;
+    padding: 0.6em 1.5em;
+    border-radius: 0.375rem;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    transition: background-color 0.2s;
+}
+
+.manual-form-section button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Make error message stand out more */
+#error-message {
+    min-height: 20px; /* Prevent layout shift */
+    font-weight: 500;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+
+/* Scrollbar styling for the team list */
+.team-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.team-list::-webkit-scrollbar-track {
+  background: var(--body-bg);
+}
+
+.team-list::-webkit-scrollbar-thumb {
+  background-color: var(--border-color) ;
+  border-radius: 10px;
+  border: 2px solid var(--body-bg);
+}
+
+.team-list::-webkit-scrollbar-thumb:hover {
+  background-color: theme('colors.gray.500');
+}
+
+
+:root {
+    --glow-color-transparent: rgba(52, 211, 153, 0.5); /* #34d399 with 50% opacity */
+}
