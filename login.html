@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sales & Stock Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-300 font-sans flex items-center justify-center h-screen">
+
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h1 class="text-2xl font-bold text-white text-center mb-6">Dashboard Login</h1>
+        
+        <form id="login-form">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-400 mb-2">Email</label>
+                <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-400 mb-2">Password</label>
+                <input type="password" id="password" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-blue-500" required>
+            </div>
+            <button type="submit" id="login-button" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition">Login</button>
+        </form>
+        <p id="login-error" class="text-red-500 text-center mt-4"></p>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+</html>

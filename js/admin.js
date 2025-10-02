@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
-    const loginContainer = document.getElementById('login-container');
     const adminPanel = document.getElementById('admin-panel');
-    const loginButton = document.getElementById('login-button');
     const logoutButton = document.getElementById('logout-button');
-    const emailInput = document.getElementById('email-input');
-    const passwordInput = document.getElementById('password-input');
-    const errorMessage = document.getElementById('error-message');
     const teamMemberForm = document.getElementById('team-member-form');
     const teamMembersTableBody = document.querySelector('#team-members-table tbody');
 
@@ -35,69 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Auth State Observer ---
-    // This runs when the page loads to check if the user is already logged in.
     auth.onAuthStateChanged(async (user) => {
         if (user) {
-            // User is signed in, check their role.
             try {
                 const userDoc = await db.collection('users').doc(user.uid).get();
                 if (userDoc.exists && (userDoc.data().role === 'admin' || userDoc.data().role === 'editor')) {
-                    // If user is admin, show the panel and hide the login form.
-                    // This allows admins to access this page directly if they are already authenticated.
                     adminPanel.classList.remove('hidden');
-                    loginContainer.classList.add('hidden');
                     loadTeamMembers();
                 } else {
-                    // Not an admin or user doc doesn't exist, sign them out from this page.
-                    auth.signOut();
+                    window.location.href = 'index.html';
                 }
             } catch (error) {
                 console.error('Error fetching user role:', error);
                 auth.signOut();
             }
         } else {
-            // User is signed out, ensure the login form is visible.
-            adminPanel.classList.add('hidden');
-            loginContainer.classList.remove('hidden');
+            window.location.href = 'login.html';
         }
     });
 
     // --- Event Listeners ---
-
-    // Login Button
-    if (loginButton) {
-        loginButton.addEventListener('click', () => {
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            
-            auth.signInWithEmailAndPassword(email, password)
-                .then(userCredential => {
-                    // On successful login, check role and REDIRECT.
-                    const user = userCredential.user;
-                    db.collection('users').doc(user.uid).get().then(userDoc => {
-                        if (userDoc.exists && (userDoc.data().role === 'admin' || userDoc.data().role === 'editor')) {
-                            // It's an admin! Redirect to the main page.
-                            window.location.href = 'index.html';
-                        } else {
-                            // Not an admin.
-                            errorMessage.textContent = 'You do not have permission to access this page.';
-                            errorMessage.classList.remove('hidden');
-                            auth.signOut();
-                        }
-                    });
-                })
-                .catch((error) => {
-                    errorMessage.textContent = error.message;
-                    errorMessage.classList.remove('hidden');
-                });
-        });
-    }
-
-    // Logout Button
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             auth.signOut().then(() => {
-                // After logout, redirect to the main page.
                 window.location.href = 'index.html';
             });
         });

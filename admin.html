@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="style.css"> <!-- General styles -->
-    <link rel="stylesheet" href="admin.css"> <!-- Admin-specific styles -->
+    <link rel="stylesheet" href="../style.css"> <!-- General styles -->
+    <link rel="stylesheet" href="../admin.css"> <!-- Admin-specific styles -->
     <script src="https://cdn.tailwindcss.com"></script> <!-- Adding Tailwind for utility classes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </head>
 <body class="bg-gray-900">
 
@@ -148,23 +149,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    
-    <script>
-        const firebaseConfig = {
-            projectId: "stockflo-df6d6",
-            appId: "1:548883078579:web:18d546da59d441b1533fc6",
-            databaseURL: "https://stockflo-df6d6-default-rtdb.firebaseio.com",
-            storageBucket: "stockflo-df6d6.firebasestorage.app",
-            apiKey: "AIzaSyCb03caIQGGeYFRJHjcRZPlty8RoZ5DIDg",
-            authDomain: "stockflo-df6d6.firebaseapp.com",
-            messagingSenderId: "548883078579",
-            measurementId: "G-RZ6T1MN4Z4"
-        };
-        firebase.initializeApp(firebaseConfig);
-    </script>
+    <script src="../firebase-config.js"></script>
 
     <!-- Papa Parse for CSV parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="admin.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 </html>

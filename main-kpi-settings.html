@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main KPI Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-4">
+        <header class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Main KPI Settings</h1>
+            <a href="kpi.html" class="btn-secondary">Back to KPI Menu</a>
+        </header>
+        
+        <div class="card">
+            <h2 class="text-2xl font-semibold mb-4">Total Monthly Target</h2>
+            <div class="kpi-grid-condensed">
+                <div>
+                    <p>Total Monthly Target:</p>
+                    <input type="number" id="total-monthly-target-input" data-field="total_monthly_target" class="bg-gray-800 rounded p-1 w-full">
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <button id="save-kpi-btn" class="btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <!-- Page Script -->
+    <script src="js/main-kpi-settings.js"></script>
+</body>
+</html>

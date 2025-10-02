@@ -1,0 +1,44 @@
+<section id="de-dashboard" class="dashboard-section">
+    <h2 class="text-2xl font-bold mb-4">DE Performance</h2>
+
+    <!-- KPIs -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="card kpi-card">
+            <p>Total MTD Sales</p>
+            <p id="de-mtd-sales" class="kpi-value">0</p>
+        </div>
+        <div class="card kpi-card">
+            <p>Total Monthly Target</p>
+            <p id="de-monthly-target" class="kpi-value">0</p>
+        </div>
+         <div class="card kpi-card">
+            <p>Gap vs MTD Target</p>
+            <p id="de-gap" class="kpi-value">0</p>
+        </div>
+        <div class="card kpi-card">
+            <p>Required Running Rate (RRR)</p>
+            <p id="de-rrr" class="kpi-value">0</p>
+        </div>
+    </div>
+
+    <!-- Performance Gauge -->
+    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-6">
+        <div class="card">
+            <h3 class="card-title">MTD Actual vs MTD Target</h3>
+            <div class="flex items-center">
+                <div id="de-performance" class="percentage-display">0%</div>
+                <div class="w-full bg-gray-700 rounded-full h-4 ml-4">
+                    <div id="de-performance-bar" class="bg-green-500 h-4 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+             <div class="mt-4 text-center">
+                <p class="text-lg">MTD Target: <span id="de-mtd-target" class="font-bold">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Individual Cards -->
+    <div id="de-container" class="performance-grid">
+        <!-- DE cards will be dynamically inserted here -->
+    </div>
+</section>
