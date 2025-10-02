@@ -39,16 +39,15 @@
             </div>
             <div class="kpi-grid-condensed">
                 <div><p>Name:</p><input type="text" data-field="de_name" class="bg-gray-800 rounded p-1 w-full"></div>
+                <div><p>Cluster:</p><input type="text" data-field="cluster" class="bg-gray-800 rounded p-1 w-full"></div>
                 <div><p>Monthly Sales Target:</p><input type="number" data-field="monthly_sales_target" class="bg-gray-800 rounded p-1 w-full"></div>
             </div>
         </div>
     </template>
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="firebase-config.js"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
 
     <!-- Page Script -->
     <script src="js/de-kpi.js"></script>

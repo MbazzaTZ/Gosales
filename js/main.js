@@ -1,21 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const db = firebase.firestore();
     const TIMEZONE = 'Asia/Karachi';
 
-    // --- State Management ---
     let state = {
         personnel: { captains: [], des: [], teamLeaders: [] },
-        kpi: { salesLog: {} },
+        salesLog: [],
         time: { allWorkingDays: 0, pastWorkingDays: 0, remainingWorkingDays: 0, todayStr: '' },
         ui: { currentDashboard: 'main-dashboard' },
-        listeners: []
+        subscriptions: []
     };
 
-    // --- INITIALIZATION ---
     function init() {
-        firebase.auth().onAuthStateChanged(user => {
-            updateUIBasedOnAuth(user);
-            if (user) {
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            updateUIBasedOnAuth(session?.user);
+            if (session?.user) {
                 startDataPipeline();
                 setupNavigation();
                 setupMobileMenu();
@@ -25,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- DATA PIPELINE: The New Core Logic ---
     async function startDataPipeline() {
         await fetchAllData();
         setupRealtimeListeners();
@@ -33,42 +29,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupRealtimeListeners() {
-        if (state.listeners.length > 0) {
-            state.listeners.forEach(unsub => unsub());
-            state.listeners = [];
-        }
+        state.subscriptions.forEach(sub => supabaseClient.removeChannel(sub));
+        state.subscriptions = [];
 
-        const collections = ['kpi', 'captains', 'des', 'teamLeaders'];
-        collections.forEach(col => {
-            const unsubscribe = db.collection(col).onSnapshot(async () => {
-                console.log(`Change detected in '${col}'. Rerunning data pipeline.`);
+        const captainsChannel = supabaseClient
+            .channel('captains-changes')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'captains' }, async () => {
+                console.log('Change detected in captains. Rerunning data pipeline.');
                 await fetchAllData();
                 processAndRender();
-            });
-            state.listeners.push(unsubscribe);
-        });
+            })
+            .subscribe();
+
+        const desChannel = supabaseClient
+            .channel('des-changes')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'distribution_executives' }, async () => {
+                console.log('Change detected in distribution_executives. Rerunning data pipeline.');
+                await fetchAllData();
+                processAndRender();
+            })
+            .subscribe();
+
+        const teamLeadersChannel = supabaseClient
+            .channel('teamleaders-changes')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'team_leaders' }, async () => {
+                console.log('Change detected in team_leaders. Rerunning data pipeline.');
+                await fetchAllData();
+                processAndRender();
+            })
+            .subscribe();
+
+        const salesLogChannel = supabaseClient
+            .channel('saleslog-changes')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'sales_log' }, async () => {
+                console.log('Change detected in sales_log. Rerunning data pipeline.');
+                await fetchAllData();
+                processAndRender();
+            })
+            .subscribe();
+
+        state.subscriptions = [captainsChannel, desChannel, teamLeadersChannel, salesLogChannel];
     }
 
     async function fetchAllData() {
         try {
-            const [kpiDoc, captainsSnap, desSnap, teamLeadersSnap] = await Promise.all([
-                db.collection('kpi').doc('main').get(),
-                db.collection('captains').get(),
-                db.collection('des').get(),
-                db.collection('teamLeaders').get()
+            const [captainsRes, desRes, teamLeadersRes, salesLogRes] = await Promise.all([
+                supabaseClient.from('captains').select('*'),
+                supabaseClient.from('distribution_executives').select('*'),
+                supabaseClient.from('team_leaders').select('*'),
+                supabaseClient.from('sales_log').select('*')
             ]);
 
-            state.kpi = kpiDoc.exists ? kpiDoc.data() : { salesLog: {} };
-            state.personnel.captains = captainsSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            state.personnel.des = desSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            state.personnel.teamLeaders = teamLeadersSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            state.personnel.captains = captainsRes.data || [];
+            state.personnel.des = desRes.data || [];
+            state.personnel.teamLeaders = teamLeadersRes.data || [];
+            state.salesLog = salesLogRes.data || [];
 
         } catch (error) {
             console.error("FATAL: Could not fetch critical data:", error);
         }
     }
 
-    // --- PROCESSING & RENDERING ---
     function processAndRender() {
         calculateTimeMetrics();
         const calculatedData = calculateAllMetrics();
@@ -86,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let all = 0, past = 0, remaining = 0;
         for (let i = 1; i <= totalDaysInMonth; i++) {
             const loopDate = new Date(year, month, i);
-            if (loopDate.getDay() !== 0) { // Exclude Sundays
+            if (loopDate.getDay() !== 0) {
                 all++;
                 if (i <= todayDate) past++;
                 else remaining++;
@@ -96,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function calculateAllMetrics() {
-        const { salesLog } = state.kpi;
         const { captains, des, teamLeaders } = state.personnel;
         const { todayStr } = state.time;
         const yesterdayStr = new Intl.DateTimeFormat('sv-SE', { timeZone: TIMEZONE }).format(new Date(Date.now() - 86400000));
@@ -114,31 +134,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let totalMtdSales = 0, totalTodaySales = 0, totalYesterdaySales = 0;
 
-        for (const date in salesLog) {
+        state.salesLog.forEach(logEntry => {
+            const date = logEntry.sale_date;
             const monthOfDate = date.substring(0, 7);
-            for (const pId in salesLog[date]) {
-                const sale = Number(salesLog[date][pId]) || 0;
-                if (personnelMetrics[pId]) {
-                    if (monthOfDate === currentMonthStr) {
-                        personnelMetrics[pId].mtd_sales += sale;
-                        totalMtdSales += sale;
-                    }
-                    if (date === todayStr) {
-                        personnelMetrics[pId].today_sales += sale;
-                        totalTodaySales += sale;
-                    }
-                    if (date === yesterdayStr) {
-                        personnelMetrics[pId].yesterday_sales += sale;
-                        totalYesterdaySales += sale;
-                    }
+            const personId = logEntry.person_id;
+            const sale = Number(logEntry.sales_amount) || 0;
+
+            if (personnelMetrics[personId]) {
+                if (monthOfDate === currentMonthStr) {
+                    personnelMetrics[personId].mtd_sales += sale;
+                    totalMtdSales += sale;
+                }
+                if (date === todayStr) {
+                    personnelMetrics[personId].today_sales += sale;
+                    totalTodaySales += sale;
+                }
+                if (date === yesterdayStr) {
+                    personnelMetrics[personId].yesterday_sales += sale;
+                    totalYesterdaySales += sale;
                 }
             }
-        }
-        
+        });
+
         const teamLeaderMetrics = teamLeaders.map(tl => {
             const clusterCaptains = captains.filter(c => c.cluster === tl.cluster);
             const clusterCaptainIds = clusterCaptains.map(c => c.id);
-            
+
             const mtd_sales = clusterCaptainIds.reduce((sum, id) => sum + (personnelMetrics[id]?.mtd_sales || 0), 0);
             const yesterday_sales = clusterCaptainIds.reduce((sum, id) => sum + (personnelMetrics[id]?.yesterday_sales || 0), 0);
             const monthly_sales_target = clusterCaptains.reduce((sum, c) => sum + (c.monthly_sales_target || 0), 0);
@@ -168,12 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- DASHBOARD-SPECIFIC RENDERERS ---
     function renderMainDashboard(data) {
         const { totalMtdSales, totalTodaySales, totalYesterdaySales } = data;
         const totalTarget = [...state.personnel.captains, ...state.personnel.des].reduce((sum, p) => sum + (p.monthly_sales_target || 0), 0);
         const { allWorkingDays, pastWorkingDays, remainingWorkingDays } = state.time;
-        
+
         const dailyTarget = allWorkingDays > 0 ? totalTarget / allWorkingDays : 0;
         const mtdTarget = dailyTarget * pastWorkingDays;
         const performance = mtdTarget > 0 ? (totalMtdSales / mtdTarget) * 100 : 0;
@@ -234,14 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
         return card;
     }
-    
+
     function updateGlobalKPIs({ allWorkingDays, remainingWorkingDays, todayStr }) {
         setElText('current-date', todayStr);
         setElText('working-days', allWorkingDays);
         setElText('remaining-days', remainingWorkingDays);
     }
 
-    // --- DAILY SALES LOG SPECIFIC LOGIC ---
     function getDailySalesHTML() {
         return `<div class="container mx-auto p-4"><div class="flex justify-between items-center mb-4"><h1 class="text-2xl font-bold">Daily Sales Log</h1><button id="save-sales-log-btn" class="btn-primary">Save Changes</button></div><div id="daily-sales-grid-container" class="overflow-x-auto"></div></div>`;
     }
@@ -254,13 +273,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const allPersonnel = [...state.personnel.captains, ...state.personnel.des];
         const dates = getDatesForCurrentMonth();
 
+        const salesMap = {};
+        state.salesLog.forEach(log => {
+            if (!salesMap[log.sale_date]) salesMap[log.sale_date] = {};
+            salesMap[log.sale_date][log.person_id] = log.sales_amount;
+        });
+
         let head = `<thead><tr><th class="sticky left-0 bg-gray-800 z-10">Date</th>${allPersonnel.map(p => `<th class="px-4 py-2">${p.captain_name || p.de_name}</th>`).join('')}</tr></thead>`;
         let body = `<tbody>`;
         dates.forEach(date => {
             body += `<tr><td class="sticky left-0 bg-gray-700 z-10 px-4 py-2">${date}</td>`;
             allPersonnel.forEach(p => {
-                const saleValue = state.kpi.salesLog?.[date]?.[p.id] || '';
-                body += `<td class="px-2 py-1"><input type="number" class="sales-input" data-date="${date}" data-person-id="${p.id}" value="${saleValue}"></td>`;
+                const personType = p.captain_name ? 'captain' : 'de';
+                const saleValue = salesMap[date]?.[p.id] || '';
+                body += `<td class="px-2 py-1"><input type="number" class="sales-input" data-date="${date}" data-person-id="${p.id}" data-person-type="${personType}" value="${saleValue}"></td>`;
             });
             body += `</tr>`;
         });
@@ -280,36 +306,52 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!saveBtn.classList.contains('pulse')) return alert("No changes to save.");
         saveBtn.disabled = true; saveBtn.textContent = 'Saving...';
 
-        const updatedLog = JSON.parse(JSON.stringify(state.kpi.salesLog || {}));
+        const salesToUpsert = [];
+        const salesToDelete = [];
 
         document.querySelectorAll('.sales-input').forEach(input => {
-            const { date, personId } = input.dataset;
+            const { date, personId, personType } = input.dataset;
             const value = parseFloat(input.value.trim());
 
-            if (!updatedLog[date]) updatedLog[date] = {};
             if (!isNaN(value) && value > 0) {
-                updatedLog[date][personId] = value;
-            } else {
-                delete updatedLog[date][personId];
-            }
-            if (Object.keys(updatedLog[date]).length === 0) {
-                delete updatedLog[date];
+                salesToUpsert.push({
+                    sale_date: date,
+                    person_id: personId,
+                    person_type: personType,
+                    sales_amount: value
+                });
+            } else if (input.value.trim() === '') {
+                salesToDelete.push({ sale_date: date, person_id: personId });
             }
         });
 
         try {
-            await db.collection('kpi').doc('main').set({ salesLog: updatedLog }, { merge: true });
+            if (salesToUpsert.length > 0) {
+                await supabaseClient
+                    .from('sales_log')
+                    .upsert(salesToUpsert, { onConflict: 'sale_date,person_id' });
+            }
+
+            if (salesToDelete.length > 0) {
+                for (const entry of salesToDelete) {
+                    await supabaseClient
+                        .from('sales_log')
+                        .delete()
+                        .eq('sale_date', entry.sale_date)
+                        .eq('person_id', entry.person_id);
+                }
+            }
+
             saveBtn.classList.remove('pulse');
             alert('Sales log saved successfully!');
         } catch (error) {
             console.error("Error saving sales log:", error);
-            alert('Failed to save sales log.');
+            alert('Failed to save sales log: ' + error.message);
         } finally {
             saveBtn.disabled = false; saveBtn.textContent = 'Save Changes';
         }
     }
-    
-    // --- NAVIGATION & UI HELPERS ---
+
     async function loadDashboard(dashboardName) {
         state.ui.currentDashboard = dashboardName;
         const dashboardContent = document.getElementById('dashboard-content');
@@ -324,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 htmlContent = await response.text();
             }
             dashboardContent.innerHTML = htmlContent;
-            
+
             if (dashboardName === 'daily-sales') {
                 await renderSalesGrid();
             } else {
@@ -349,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
     function getDatesForCurrentMonth() {
         const dates = [];
         const today = new Date();
@@ -361,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return dates;
     }
-    
+
     function setElText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text || '0'; else console.warn(`Element with id '${id}' not found`);
@@ -376,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('login-btn').classList.toggle('hidden', !!user);
         document.getElementById('logout-btn').classList.toggle('hidden', !user);
     }
-    
+
     function setupMobileMenu() {
         const menuBtn = document.getElementById('menu-btn');
         const subNav = document.querySelector('.sub-nav');
@@ -385,6 +427,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- START THE APP ---
     init();
 });

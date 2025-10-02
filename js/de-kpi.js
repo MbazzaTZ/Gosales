@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const db = firebase.firestore();
     const saveBtn = document.getElementById('save-kpi-btn');
     const deTemplate = document.getElementById('de-template');
     const deContainer = document.getElementById('de-container');
 
     let changes = {};
 
-    // --- EVENT LISTENERS ---
-    document.getElementById('add-de-btn').addEventListener('click', () => addEntry('des', deTemplate, deContainer));
+    document.getElementById('add-de-btn').addEventListener('click', () => addEntry('distribution_executives', deTemplate, deContainer));
     saveBtn.addEventListener('click', saveAllChanges);
 
     function addEntry(collectionName, template, container) {
-        const newDocRef = db.collection(collectionName).doc();
-        const newEntry = createEntryElement(newDocRef.id, {}, template, collectionName);
+        const newId = crypto.randomUUID();
+        const newEntry = createEntryElement(newId, {}, template, collectionName);
         container.appendChild(newEntry);
         if (!changes[collectionName]) changes[collectionName] = {};
-        changes[collectionName][newDocRef.id] = { isNew: true };
+        changes[collectionName][newId] = { isNew: true };
     }
 
     function createEntryElement(id, data, template, collectionName) {
@@ -56,45 +54,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function saveAllChanges() {
-        const batch = db.batch();
+        try {
+            for (const collectionName in changes) {
+                for (const docId in changes[collectionName]) {
+                    const docChanges = changes[collectionName][docId];
 
-        for (const collectionName in changes) {
-            for (const docId in changes[collectionName]) {
-                const docChanges = changes[collectionName][docId];
-                const docRef = db.collection(collectionName).doc(docId);
-                if (docChanges._delete) {
-                    batch.delete(docRef);
-                } else {
-                    batch.set(docRef, docChanges, { merge: true });
+                    if (docChanges._delete) {
+                        await supabaseClient
+                            .from(collectionName)
+                            .delete()
+                            .eq('id', docId);
+                    } else {
+                        const { isNew, ...dataToSave } = docChanges;
+
+                        if (isNew) {
+                            await supabaseClient
+                                .from(collectionName)
+                                .insert({ id: docId, ...dataToSave });
+                        } else {
+                            await supabaseClient
+                                .from(collectionName)
+                                .update(dataToSave)
+                                .eq('id', docId);
+                        }
+                    }
                 }
             }
+
+            alert('All changes have been saved successfully!');
+            changes = {};
+            saveBtn.classList.remove('animate-pulse');
+            loadAllData();
+        } catch (error) {
+            console.error('Error saving changes:', error);
+            alert('Failed to save changes: ' + error.message);
         }
-
-        await batch.commit();
-
-        alert('All changes have been saved successfully!');
-        changes = {};
-        saveBtn.classList.remove('animate-pulse');
-        loadAllData(); 
     }
 
     async function loadAllData() {
         const collectionsToLoad = {
-            des: { template: deTemplate, container: deContainer },
+            distribution_executives: { template: deTemplate, container: deContainer },
         };
 
         for (const collectionName in collectionsToLoad) {
             const { template, container } = collectionsToLoad[collectionName];
-            if(container) {
-                container.innerHTML = ''; // Clear existing entries before loading
-                const snapshot = await db.collection(collectionName).get();
-                snapshot.forEach(doc => {
-                    const newEntry = createEntryElement(doc.id, doc.data(), template, collectionName);
-                    container.appendChild(newEntry);
-                });
+            if (container) {
+                container.innerHTML = '';
+                const { data, error } = await supabaseClient
+                    .from(collectionName)
+                    .select('*')
+                    .order('de_name', { ascending: true });
+
+                if (data) {
+                    data.forEach(doc => {
+                        const newEntry = createEntryElement(doc.id, doc, template, collectionName);
+                        container.appendChild(newEntry);
+                    });
+                }
             }
         }
     }
 
-    loadAllD    ata();
+    loadAllData();
 });

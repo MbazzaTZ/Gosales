@@ -1,35 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const editorModeBtn = document.getElementById('editor-mode-btn');
 
-    auth.onAuthStateChanged(user => {
+    supabaseClient.auth.onAuthStateChange(async (event, session) => {
+        const user = session?.user;
+
         if (user) {
-            // User is signed in.
             loginBtn.classList.add('hidden');
             logoutBtn.classList.remove('hidden');
 
-            // Check user role for editor button
-            db.collection('users').doc(user.uid).get().then(doc => {
-                if (doc.exists && (doc.data().role === 'admin' || doc.data().role === 'editor')) {
-                    editorModeBtn.classList.remove('hidden');
-                }
-            });
+            const { data: userData } = await supabaseClient
+                .from('users')
+                .select('role')
+                .eq('id', user.id)
+                .maybeSingle();
 
+            if (userData && (userData.role === 'admin' || userData.role === 'editor')) {
+                editorModeBtn.classList.remove('hidden');
+            }
         } else {
-            // User is signed out.
             loginBtn.classList.remove('hidden');
             logoutBtn.classList.add('hidden');
             editorModeBtn.classList.add('hidden');
         }
     });
 
-    if(logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            auth.signOut();
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+            await supabaseClient.auth.signOut();
         });
     }
 });
